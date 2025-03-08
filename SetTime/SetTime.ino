@@ -4,7 +4,7 @@
 
 byte zero = 0x00;
 
-void setup() 
+void setup()
 {
   Serial.begin(9600);
   Wire.begin();
@@ -12,13 +12,13 @@ void setup()
   SetDateTime();
 }
 
-void loop() 
+void loop()
 {
   PrintDate();
   delay(1000);
 }
 
-void SetDateTime() 
+void SetDateTime()
 {
   byte second = 0;
   byte minute = 54;
@@ -41,17 +41,17 @@ void SetDateTime()
   Wire.endTransmission();
 }
 
-byte DecToBcd(byte val) 
+byte DecToBcd(byte val)
 {
   return ((val / 10 * 16) + (val % 10));
 }
 
-byte BcdToDec(byte val) 
+byte BcdToDec(byte val)
 {
   return ((val / 16 * 10) + (val % 16));
 }
 
-void PrintDate() 
+void PrintDate()
 {
   Wire.beginTransmission(DS1307_ADDRESS);
   Wire.write(zero);

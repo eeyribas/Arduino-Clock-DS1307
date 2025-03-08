@@ -3,7 +3,7 @@
 
 RTC_DS1307 rtc;
 
-void setup() 
+void setup()
 {
   Serial.begin(9600);
 
@@ -16,10 +16,11 @@ void setup()
     Serial.println("RTC is not running!");
     rtc.adjust(DateTime(2018, 10, 22, 12, 55, 21));
   }
+
   delay(100);
 }
 
-void loop() 
+void loop()
 {
   DateTime now = rtc.now();
   Serial.print(now.day(), DEC);
